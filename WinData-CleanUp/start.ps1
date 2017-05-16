@@ -22,11 +22,20 @@ cls
 function startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.0.2 ║"
+        Write-Host "║                                                                        v0.0.3 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
 ### Test-Funktion, ob der temporäre Papierkorb bereits existiert ###
 function Test-Junkfolder{
     Test-Path -PathType Container -Path "$folder\$junkname"
+}### Temporärer Papierkorb anlegen ###
+function Create-Junkfolder{
+    if(Test-Junkfolder -eq "False"){
+        Write-Host $junkexists
+    }
+    else{
+        New-Item -ItemType Directory -Force -Path "$folder\$junkname" | Out-Null
+        Write-Host $junkcreated
+    }
 }
