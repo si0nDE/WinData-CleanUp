@@ -19,10 +19,10 @@ cls
     $deleteage = ""
 
 ### Startbildschirm ###
-function startbildschirm {
+function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.0.4 ║"
+        Write-Host "║                                                                        v0.0.5 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
@@ -34,11 +34,11 @@ function Test-Junkfolder{
 ### Temporärer Papierkorb anlegen ###
 function Create-Junkfolder{
     if(Test-Junkfolder -eq "False"){
-        Write-Host $junkexists
+        Write-Host "o $junkexists" 
     }
     else{
         New-Item -ItemType Directory -Force -Path "$folder\$junkname" | Out-Null
-        Write-Host $junkcreated
+        Write-Host "+ $junkcreated"
     }
 }
 
@@ -46,5 +46,5 @@ function Create-Junkfolder{
 ### Spracheinstellungen ###
 ### Language settings ###
 
-$junkexists = "o Temporärer Papierkorb bereits angelegt."
-$junkcreated = "+ Temporärer Papierkorb angelegt."
+$junkexists  = "Temporärer Papierkorb bereits angelegt."
+$junkcreated = "Temporärer Papierkorb angelegt."
