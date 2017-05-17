@@ -25,6 +25,15 @@ cls
     # 0 = aus; 1 = ein
     $deletereport = 0
 
+### Spracheinstellungen | Language settings ###
+
+$notice        = "Hinweis"
+$junkexists    = "Temporärer $junkname bereits angelegt."
+$junkcreated   = "Temporärer $junkname angelegt."
+$reportname    = "$folder to $junkname $(Get-Date -Format yy.MM.dd-HHmmss).txt"
+$movereportmessage1 = "Die Aufzeichnung über verschobene Elemente wird durchgeführt."
+$movereportmessage2 = "Es wird keine Aufzeichnung über verschobene Elemente durchgeführt."
+
 ##################################################  ##################################################
 ##################################################  ##################################################
 ##################################################  ##################################################
@@ -37,7 +46,7 @@ cls
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.1.2 ║"
+        Write-Host "║                                                                        v0.1.3 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
@@ -73,12 +82,4 @@ function Create-Junkfolder{
 }
 
 
-### Spracheinstellungen ###
-### Language settings ###
 
-$junkexists  = "Temporärer Papierkorb bereits angelegt."
-$junkcreated = "Temporärer Papierkorb angelegt."
-$notice        = "Hinweis"
-$reportname    = "$folder to $junkname $(Get-Date -Format yy.MM.dd-HHmmss).txt"
-$movereportmessage1 = "Die Aufzeichnung über verschobene Elemente wird durchgeführt."
-$movereportmessage2 = "Es wird keine Aufzeichnung über verschobene Elemente durchgeführt."
