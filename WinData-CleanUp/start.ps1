@@ -4,7 +4,7 @@
 
 cls
 
-### Einstellungen ###
+### Einstellungen | Settings ###
 
     # Welcher Ordner soll überwacht werden?
     $folder    = ""
@@ -25,14 +25,23 @@ cls
     # 0 = aus; 1 = ein
     $deletereport = 0
 
-### Startbildschirm ###
+##################################################  ##################################################
+##################################################  ##################################################
+##################################################  ##################################################
+##### Ab hier, keine Änderungen durchführen! #####  ############ Do not make any changes! ############
+##################################################  ##################################################
+##################################################  ##################################################
+##################################################  ##################################################
+
+### Startbildschirm | Start screen ###
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.1.1 ║"
+        Write-Host "║                                                                        v0.1.2 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
+### Report erstellen | Create report ###
 function Get-Report{
     if($movereport -eq "1"){
         Startbildschirm
@@ -51,7 +60,7 @@ function Get-Report{
     }
 }
 
-### Temporärer Papierkorb anlegen ###
+### Temporärer Papierkorb anlegen | Create temporary junk folder ###
 function Create-Junkfolder{
     $Test_Junkfolder = Test-Path -PathType Container -Path "$folder\$junkname"
     if(Test-Junkfolder -eq "False"){
