@@ -7,11 +7,11 @@ Dieses Script soll helfen und schafft Ordnung in 2 Schritten:
 
 Zuerst wird eine Datei nach einer beliebigen Zeit in einen temporären Papierkorb verschoben. Wird die Datei doch noch benötigt, kann sie jederzeit aus diesem rausgeholt werden.
 
-Wird an der Datei nichts geändert und sie liegt weiterhin im temporären Papierkorb, wird diese nach einer beliebigen Zeit unwiederruflich gelöscht.
+Wird an der Datei nichts geändert und sie liegt weiterhin im temporären Papierkorb, wird diese nach einer beliebigen Zeit unwiderruflich gelöscht.
 
 Für jeden dieser Schritte kann ein Report erstellt werden, sodass Sie als Administrator die Möglichkeit haben festzustellen, wann was passiert ist.
 
-Dieses Script erledigt das alles voll automatisch für Sie!
+Dieses Script erledigt das alles vollautomatisch für Sie!
 
 Eine Möglichkeit zur direkten Löschung ist geplant und erfolgt in Kürze.
 
