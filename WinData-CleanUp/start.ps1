@@ -7,24 +7,24 @@ cls
 ### Einstellungen | Settings ###
 
     # Welcher Ordner soll überwacht werden?
-    # Which folder should be monitored?
+    # Which folder is supposed to be monitored?
     $folder    = ""
 
     # Wie soll der temporäre Papierkorb heißen?
-    # What is the name of the temporary junk folder?
+    # How do you want to name the temporary junk folder?
     $junkname  = "Papierkorb" # "Junk"
 
     # Wie alt dürfen die Daten im oben angegebenen Ordner werden, bevor sie verschoben werden?
     # Beispiel: 90 = 90 Tage
     #
-    # How old may the files in the folder be before they are moved?
+    # At which age are the files supposed to be moved?
     # Example: 90 = 90 days
     $moveage   = "90"
 
     # Wie alt dürfen die Daten im temporären Papierkorb werden, bevor sie endgültig gelöscht werden?
     # Beispiel: 120 = 120 Tage
     #
-    # How old may the files in the temporary junk folder be before they are finally deleted?
+    # At which age are the files supposed to be finally deleted?
     # Example: 120 = 120 days
     $deleteage = "180"
 
@@ -69,7 +69,7 @@ $movecompleted   = "Dateien wurden in den $junkname verschoben." # ""
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.2.0 ║"
+        Write-Host "║                                                                        v0.2.1 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
