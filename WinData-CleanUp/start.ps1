@@ -50,6 +50,8 @@ $movingfiles     = "$moveage Tage alte Dateien werden verschoben..." # ""
 $reportmessage1  = "Es wird eine Aufzeichnung aller nachfolgenden Vorgänge durchgeführt." # ""
 $reportmessage2  = "Es wird keine Aufzeichnung über die nachfolgenden Vorgänge durchgeführt." # ""
 $movecompleted   = "Dateien wurden in den $junkname verschoben." # ""
+$deletefiles     = "$deleteage Tage alte Dateien werden gelöscht..." # ""
+$deletecompleted = "Dateien im $junkname wurden gelöscht." # ""
 
 
 
@@ -69,7 +71,7 @@ $movecompleted   = "Dateien wurden in den $junkname verschoben." # ""
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.2.1 ║"
+        Write-Host "║                                                                        v0.3.0 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
@@ -128,3 +130,19 @@ function Move-Data{
     }
 }
 
+### Daten im Papierkorb löschen | Delete files from junk ###
+function Delete-Data{
+    $deletedate = (Get-Date).AddDays(-$deleteage)
+    if($report -eq "1"){
+        Write-Host " o $deletefiles"
+        Write-Host ""
+        Get-ChildItem "$folder\$junkname" -Recurse | where {$_.LastWriteTime -lt $deletedate -and -not $_.psiscontainer} |% { Remove-Item $_.FullName -Force -Verbose}
+        Write-Host ""
+        Write-Host " √ $deletecompleted"
+    }
+    else{
+        Write-Host " o $deletefiles"
+        Get-ChildItem "$folder\$junkname" -Recurse | where {$_.LastWriteTime -lt $deletedate -and -not $_.psiscontainer} |% { Remove-Item $_.FullName -Force}
+        Write-Host " √ $deletecompleted"
+    }
+}
