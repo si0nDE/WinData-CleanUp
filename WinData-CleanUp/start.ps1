@@ -71,7 +71,7 @@ $deletecompleted = "Dateien im $junkname wurden gelöscht." # ""
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.3.0 ║"
+        Write-Host "║                                                                        v0.3.1 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
