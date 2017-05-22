@@ -71,7 +71,7 @@ $deletecompleted = "Dateien im $junkname wurden gelöscht." # ""
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.3.1 ║"
+        Write-Host "║                                                                        v0.3.2 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
@@ -79,12 +79,14 @@ function Startbildschirm {
 function Get-Report{
     if($report -eq "1"){
         Startbildschirm
+        Start-Sleep -Milliseconds  1500
         Start-Transcript "$reportname" | Out-Null
         Write-Host ""
         Write-Host " ${notice}: $reportmessage1"
     }
     else{
         Startbildschirm
+        Start-Sleep -Milliseconds  1500
         Write-Host ""
         Write-Host " ${notice}: $reportmessage2"
     }
@@ -136,13 +138,35 @@ function Delete-Data{
     if($report -eq "1"){
         Write-Host " o $deletefiles"
         Write-Host ""
+        Start-Sleep -Milliseconds  5000
         Get-ChildItem "$folder\$junkname" -Recurse | where {$_.LastWriteTime -lt $deletedate -and -not $_.psiscontainer} |% { Remove-Item $_.FullName -Force -Verbose}
         Write-Host ""
+        Start-Sleep -Milliseconds  2500
         Write-Host " √ $deletecompleted"
     }
     else{
         Write-Host " o $deletefiles"
+        Start-Sleep -Milliseconds  5000
         Get-ChildItem "$folder\$junkname" -Recurse | where {$_.LastWriteTime -lt $deletedate -and -not $_.psiscontainer} |% { Remove-Item $_.FullName -Force}
+        Start-Sleep -Milliseconds  2500
         Write-Host " √ $deletecompleted"
+    }
+}
+
+### Programm wird geschlossen ###
+function Exit-WinData-CleanUp {
+    if($language -eq "de"){
+        Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "║ Windows Data Clean Up wird beendet...                                         ║"
+        Write-Host "║                                                                               ║"
+        Write-Host "║                                                     (c) github.simonfieber.it ║"
+        Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
+    }
+    else{
+        Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
+        Write-Host "║ Closing Windows Data Clean Up...                                              ║"
+        Write-Host "║                                                                               ║"
+        Write-Host "║                                                     (c) github.simonfieber.it ║"
+        Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
 }
