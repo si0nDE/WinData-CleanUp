@@ -71,7 +71,7 @@ $deletecompleted = "Dateien im $junkname wurden gelöscht." # ""
 function Startbildschirm {
         Write-Host "╔═══════════════════════════════════════════════════════════════════════════════╗"
         Write-Host "║ Windows Data Clean Up                                                         ║"
-        Write-Host "║                                                                        v0.3.2 ║"
+        Write-Host "║                                                                        v1.0.0 ║"
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
 }
 
@@ -170,3 +170,30 @@ function Exit-WinData-CleanUp {
         Write-Host "╚═══════════════════════════════════════════════════════════════════════════════╝"
     }
 }
+
+### Start ###
+function Start-WinData-CleanUp{
+    Get-Report
+    Start-Sleep -Milliseconds  2000
+    Write-Host ""
+
+    Create-Junkfolder
+    Start-Sleep -Milliseconds  2000
+    Write-Host ""
+
+    Move-Data
+    Start-Sleep -Milliseconds  2000
+    Write-Host ""
+
+    Delete-Data
+    Start-Sleep -Milliseconds  2000
+    Write-Host ""
+
+    Stop-Report
+
+    Exit-WinData-CleanUp
+    Start-Sleep -Milliseconds 10000
+    #[Environment]::Exit(1)
+}
+
+Start-WinData-CleanUp
